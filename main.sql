@@ -109,3 +109,14 @@ INSERT INTO HasTrain VALUES(Express,12013,54);
 
 Select * from HasTrain;
 
+--Query to display details of train which arrive in evening at the station 
+Select * from train where to_char(ArrivalTime,'pm')='pm';
+--Query to display details of passenger who has taken highest Fair Ticket 
+Select p.F_Name , p.L_Name, T.T_id,T.Price from Passenger p,Ticket T where 
+p.C_Id=T.C_Id and price =(select max(price) from Ticket);
+--Query to display train no whose station is Jaipur
+select t.T_No,t.S_No,R.S_Name from HasTrain t,RailwayStation R where 
+R.S_Name='Jaipur' and R.S_No=t.S_No;
+
+
+
